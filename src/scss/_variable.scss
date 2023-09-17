@@ -1,0 +1,15 @@
+$--primary-color: #00BCD4;
+$--secondary-color: #009688;
+
+$gray : #9E9E9E;
+$white : #FFFFFF;
+
+$font-family: 'Roboto', sans-serif;
+$font-size: 14px;
+$line-height: 1.5;
+
+
+:root{
+   --app-background-color: #{$--primary-color};
+   --app-bg-form: #{$--secondary-color}
+}
