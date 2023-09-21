@@ -33,13 +33,34 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({children}) => {
 
     const dispatch = useDispatch();
 
+
+    const [selectedKey, setSelectedKey] = React.useState(['1']);
+
+    React.useEffect(() => {
+        switch (location.pathname) {
+            case '/':
+                setSelectedKey(['1'])
+                break;
+            case '/users':
+                setSelectedKey(['2'])
+                break;
+            default:
+                setSelectedKey(['1'])
+                break;
+        }
+    }, [location.pathname])
+
     const changeMenuItem = (e: any) => {
-        switch (e.key){
+        setSelectedKey([e.key])
+        switch (e.key) {
             case '1':
-                navigate('/');
+                navigate('/')
                 break;
             case '2':
-                navigate('/users');
+                navigate('/users')
+                break;
+            default:
+                navigate('/')
                 break;
         }
     }
@@ -63,7 +84,7 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({children}) => {
 
                             </div>
 
-                            <Menu theme='dark' defaultSelectedKeys={['1']} mode='inline' onClick={changeMenuItem} items={items}>
+                            <Menu theme='dark' selectedKeys={selectedKey} mode='inline' onClick={changeMenuItem} items={items}>
                                 {/* <Menu.Item key='/'>
 							<Link to='/'>DashBoard</Link>
 						</Menu.Item>

@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './scss/_global.scss'
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import BaseLayout from "./components/layout/BaseLayout";
 import Login from "./pages/auth/Login";
